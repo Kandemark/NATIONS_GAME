@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="setup-screen">
+        <h1>Create Your Nation</h1>
+        <form id="nation-form">
+            <label for="name">Nation Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="currency">Currency:</label>
+            <input type="text" id="currency" name="currency" required>
+            
+            <label for="government">Government Type:</label>
+            <select id="government" name="government" required>
+                <option value="MONARCHY">Monarchy</option>
+                <option value="DEMOCRACY">Democracy</option>
+                <option value="DICTATORSHIP">Dictatorship</option>
+                <option value="REPUBLIC">Republic</option>
+                <option value="EMPIRE">Empire</option>
+                <option value="THEOCRACY">Theocracy</option>
+                <option value="COMMUNISM">Communism</option>
+                <option value="SOCIALISM">Socialism</option>
+                <option value="AUTHORITARIANISM">Authoritarianism</option>
+                <option value="ABSOLUTISM">Absolutism</option>
+                <option value="CONSTITUTIONAL_MONARCHY">Constitutional Monarchy</option>
+                <option value="FEDERAL_REPUBLIC">Federal Republic</option>
+                <option value="CONFEDERACY">Confederacy</option>
+                <option value="OLIGARCHY">Oligarchy</option>
+                <option value="PLUTOCRACY">Plutocracy</option>
+                <option value="TOTALITARIANISM">Totalitarianism</option>
+                <option value="ANARCHY">Anarchy</option>
+                <option value="MARXISM">Marxism</option>
+                <option value="LIBERTARIANISM">Libertarianism</option>
+                <!-- Add more options as needed -->
+            </select>
+            
+            <button type="button" onclick="createNation()">Create Nation</button>
+        </form>
+
+        <form id="government-action-form">
+            <label for="branch">Branch:</label>
+            <select id="branch">
+                <!-- Options will be populated dynamically based on government type -->
+            </select>
+            <br>
+            <label for="action">Action:</label>
+            <select id="action">
+                <!-- Options will be populated dynamically based on branch -->
+            </select>
+            <br>
+            <button type="button" onclick="performAction()">Perform Action</button>
+        </form>
+
+    </div>
+
+    <div id="country-list"></div>
+    
+    <div id="game-screen" style="display: none;">
+        <!-- Game content goes here -->
+    </div>
+    <script src="js/nationSetup.js"></script>
+<script src="js/governmentActions.js"></script>
+<script>
+    function createNation() {
+        const name = document.getElementById('name').value;
+        const currency = document.getElementById('currency').value;
+        const governmentType = document.getElementById('government').value;
+
+        const nation = initializeNation(name, currency, governmentType);
+        updateBranches(nation.branches);
+    }
+
+    function updateBranches(branches) {
+        const branchSelect = document.getElementById('branch');
+        branchSelect.innerHTML = '';
+
+        for (const branch in branches) {
+            const option = document.createElement('option');
+            option.value = branch;
+            option.text = branches[branch].role;
+            branchSelect.add(option);
+        }
+
+        updateActions(branchSelect.value);
+        branchSelect.addEventListener('change', function() {
+            updateActions(this.value);
+        });
+    }
+
+    function updateActions(branch) {
+        const nation = getNation();
+        const actions = nation.branches[branch].responsibilities;
+        const actionSelect = document.getElementById('action');
+        actionSelect.innerHTML = '';
+
+        actions.forEach(action => {
+            const option = document.createElement('option');
+            option.value = action;
+            option.text = action;
+            actionSelect.add(option);
+        });
+    }
+
+    function performAction() {
+        const branch = document.getElementById('branch').value;
+        const action = document.getElementById('action').value;
+        performGovernmentAction(branch, action);
+    }
+</script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

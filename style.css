@@ -1,0 +1,244 @@
+/* style.css */
+
+/* General Styles */
+
+/* Setup Screen */
+#setup-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#setup-screen h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #007bff;
+}
+
+form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+/* Basic Reset */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f7f9, hwb(217 88% 7%));
+    color: #333;
+    overflow: hidden;
+}
+
+/* Game Dashboard */
+#game-dashboard {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #5e2a78, #a45b5b);
+    margin-top: 0%;
+    margin-bottom: 10px;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#logout-btn {
+    background-color: #ff5c5c;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#logout-btn:hover {
+    background-color: #e04d4d;
+}
+
+/* Sidebar */
+.sidebar {
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    padding-top: 60px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 0;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 15px 20px;
+    text-decoration: none;
+    border-bottom: 1px solid #444;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #5e2a78;
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+}
+
+/* Main Content */
+.container {
+    margin-left: 250px;
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.card h2 {
+    color: #0052cc;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.card .info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card .info-item {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.card .info-item:last-child {
+    margin-right: 0;
+}
+
+.card .info-item h3 {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.card .info-item p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    background-color: #0052cc;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin-left: 0;
+    }
+
+    .sidebar {
+        width: 100%;
+        transform: translateX(-100%);
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+}

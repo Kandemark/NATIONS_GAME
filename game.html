@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In-Game Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-dashboard">
+        <div class="container">
+            <nav class="sidebar">
+                <ul>
+                    <li><a href="#overview" onclick="navigateTo('overview')">Overview</a></li>
+                    <li><a href="#economy" onclick="navigateTo('economy')">Economy</a></li>
+                    <li><a href="#infrastructure" onclick="navigateTo('infrastructure')">Infrastructure</a></li>
+                    <li><a href="#politics" onclick="navigateTo('politics')">Politics</a></li>
+                    <li><a href="#publicOpinion" onclick="navigateTo('publicOpinion')">Public Opinion</a></li>
+                    <li><a href="#internationalRelations" onclick="navigateTo('internationalRelations')">International Relations</a></li>
+                </ul>
+            </nav>
+            <main class="content">
+                <header>
+                    <h1>Nation Dashboard</h1>
+                    <button id="logout-btn">Logout</button>
+                </header>
+                <section id="overview" class="card">
+                    <h2>Nation Overview</h2>
+                    <div class="info">
+                        <div class="info-item">
+                            <h3>Nation Name</h3>
+                            <p id="nationName">Loading...</p>
+                        </div>
+                        <div class="info-item">
+                            <h3>Currency</h3>
+                            <p id="currency">Loading...</p>
+                        </div>
+                        <div class="info-item">
+                            <h3>Government Type</h3>
+                            <p id="governmentType">Loading...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="economy" class="card">
+                    <h2>Economy</h2>
+                    <!-- Economy details will be dynamically populated -->
+                </section>
+
+                <section id="infrastructure" class="card">
+                    <h2>Infrastructure</h2>
+                    <!-- Infrastructure details will be dynamically populated -->
+                </section>
+
+                <section id="politics" class="card">
+                    <h2>Politics</h2>
+                    <!-- Political actions and details will be dynamically populated -->
+                </section>
+
+                <section id="publicOpinion" class="card">
+                    <h2>Public Opinion</h2>
+                    <!-- Public opinion details will be dynamically populated -->
+                </section>
+
+                <section id="internationalRelations" class="card">
+                    <h2>International Relations</h2>
+                    <!-- International relations details will be dynamically populated -->
+                </section>
+            </main>
+        </div>
+        <footer>
+            <p>&copy; 2024 President Simulator. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="js/game.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+</html>
+
